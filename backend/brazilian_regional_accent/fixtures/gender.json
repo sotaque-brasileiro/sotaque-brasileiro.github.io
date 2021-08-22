@@ -1,0 +1,26 @@
+[
+    {
+        "model": "accent_collector.gender",
+        "pk": 0,
+        "fields": {
+            "name": "masculino",
+            "radio_text": "Masculino"
+        }
+    },
+    {
+        "model": "accent_collector.gender",
+        "pk": 1,
+        "fields": {
+            "name": "feminino",
+            "radio_text": "Feminino"
+        }
+    },
+    {
+        "model": "accent_collector.gender",
+        "pk": 2,
+        "fields": {
+            "name": "n/a",
+            "radio_text": "Outro / Prefiro n\u00e3o informar"
+        }
+    }
+]

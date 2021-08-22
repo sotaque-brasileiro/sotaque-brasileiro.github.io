@@ -1,0 +1,218 @@
+[
+    {
+        "model": "accent_collector.state",
+        "pk": 11,
+        "fields": {
+            "name": "Rond\u00f4nia",
+            "abbreviation": "RO"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 12,
+        "fields": {
+            "name": "Acre",
+            "abbreviation": "AC"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 13,
+        "fields": {
+            "name": "Amazonas",
+            "abbreviation": "AM"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 14,
+        "fields": {
+            "name": "Roraima",
+            "abbreviation": "RR"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 15,
+        "fields": {
+            "name": "Par\u00e1",
+            "abbreviation": "PA"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 16,
+        "fields": {
+            "name": "Amap\u00e1",
+            "abbreviation": "AP"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 17,
+        "fields": {
+            "name": "Tocantins",
+            "abbreviation": "TO"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 21,
+        "fields": {
+            "name": "Maranh\u00e3o",
+            "abbreviation": "MA"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 22,
+        "fields": {
+            "name": "Piau\u00ed",
+            "abbreviation": "PI"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 23,
+        "fields": {
+            "name": "Cear\u00e1",
+            "abbreviation": "CE"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 24,
+        "fields": {
+            "name": "Rio Grande do Norte",
+            "abbreviation": "RN"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 25,
+        "fields": {
+            "name": "Para\u00edba",
+            "abbreviation": "PB"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 26,
+        "fields": {
+            "name": "Pernambuco",
+            "abbreviation": "PE"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 27,
+        "fields": {
+            "name": "Alagoas",
+            "abbreviation": "AL"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 28,
+        "fields": {
+            "name": "Sergipe",
+            "abbreviation": "SE"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 29,
+        "fields": {
+            "name": "Bahia",
+            "abbreviation": "BA"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 31,
+        "fields": {
+            "name": "Minas Gerais",
+            "abbreviation": "MG"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 32,
+        "fields": {
+            "name": "Esp\u00edrito Santo",
+            "abbreviation": "ES"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 33,
+        "fields": {
+            "name": "Rio de Janeiro",
+            "abbreviation": "RJ"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 35,
+        "fields": {
+            "name": "S\u00e3o Paulo",
+            "abbreviation": "SP"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 41,
+        "fields": {
+            "name": "Paran\u00e1",
+            "abbreviation": "PR"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 42,
+        "fields": {
+            "name": "Santa Catarina",
+            "abbreviation": "SC"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 43,
+        "fields": {
+            "name": "Rio Grande do Sul",
+            "abbreviation": "RS"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 50,
+        "fields": {
+            "name": "Mato Grosso do Sul",
+            "abbreviation": "MS"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 51,
+        "fields": {
+            "name": "Mato Grosso",
+            "abbreviation": "MT"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 52,
+        "fields": {
+            "name": "Goi\u00e1s",
+            "abbreviation": "GO"
+        }
+    },
+    {
+        "model": "accent_collector.state",
+        "pk": 53,
+        "fields": {
+            "name": "Distrito Federal",
+            "abbreviation": "DF"
+        }
+    }
+]

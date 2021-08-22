@@ -1,0 +1,1402 @@
+[
+    {
+        "model": "accent_collector.sentence",
+        "pk": 0,
+        "fields": {
+            "text": "A quest\u00e3o foi retomada no congresso"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 1,
+        "fields": {
+            "text": "Leila tem um lindo jardim"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 2,
+        "fields": {
+            "text": "O analfabetismo \u00e9 a vergonha do pa\u00eds"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 3,
+        "fields": {
+            "text": "A casa foi vendida sem pressa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 4,
+        "fields": {
+            "text": "Trabalhando com uni\u00e3o rende muito mais"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 5,
+        "fields": {
+            "text": "Recebi nosso amigo para almo\u00e7ar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 6,
+        "fields": {
+            "text": "A justi\u00e7a \u00e9 a \u00fanica vencedora"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 7,
+        "fields": {
+            "text": "Isso se resolver\u00e1 de forma tranquila"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 8,
+        "fields": {
+            "text": "Os pesquisadores acreditam nessa teoria"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 9,
+        "fields": {
+            "text": "Sei que atingiremos o objetivo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 10,
+        "fields": {
+            "text": "Nosso telefone quebrou"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 11,
+        "fields": {
+            "text": "Desculpe se magoei o velho"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 12,
+        "fields": {
+            "text": "Queremos discutir o or\u00e7amento"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 13,
+        "fields": {
+            "text": "Ela tem muita fome"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 14,
+        "fields": {
+            "text": "Uma \u00edndia andava na mata"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 15,
+        "fields": {
+            "text": "Z\u00e9, v\u00e1 mais r\u00e1pido!"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 16,
+        "fields": {
+            "text": "Hoje dormirei bem"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 17,
+        "fields": {
+            "text": "Jo\u00e3o deu pouco dinheiro"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 18,
+        "fields": {
+            "text": "Ainda s\u00e3o seis horas"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 19,
+        "fields": {
+            "text": "Ela sa\u00eda discretamente"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 20,
+        "fields": {
+            "text": "Eu vi logo a I\u00f4i\u00f4 e o L\u00e9o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 21,
+        "fields": {
+            "text": "Um homem n\u00e3o caminha sem um fim"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 22,
+        "fields": {
+            "text": "Vi Z\u00e9 fazer essas viagens seis vezes"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 23,
+        "fields": {
+            "text": "O atabaque do Tito \u00e9 coberto com pele de gato"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 24,
+        "fields": {
+            "text": "Ele l\u00ea no leito de palha"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 25,
+        "fields": {
+            "text": "Paira um ar de arara rara no Rio Real"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 26,
+        "fields": {
+            "text": "Foi muito dif\u00edcil entender a can\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 27,
+        "fields": {
+            "text": "Depois do almo\u00e7oo te encontro"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 28,
+        "fields": {
+            "text": "Esses s\u00e3o nossos times"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 29,
+        "fields": {
+            "text": "Procurei Maria na copa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 30,
+        "fields": {
+            "text": "A pesca \u00e9 proibida nesse lago"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 31,
+        "fields": {
+            "text": "Espero te achar bem quando voltar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 32,
+        "fields": {
+            "text": "Temos muito orgulho da nossa gente"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 33,
+        "fields": {
+            "text": "O inspetor fez a vistoria completa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 34,
+        "fields": {
+            "text": "Ainda n\u00e3o se sabe o dia da maratona"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 35,
+        "fields": {
+            "text": "Ser\u00e1 muito dif\u00edcil conseguir que eu venha"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 36,
+        "fields": {
+            "text": "A paix\u00e3o dele \u00e9 a natureza"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 37,
+        "fields": {
+            "text": "Voc\u00ea quer me dizer a data?"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 38,
+        "fields": {
+            "text": "Desculpe, mas me atrasei no casamento"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 39,
+        "fields": {
+            "text": "Faz um desvio em dire\u00e7\u00e3o ao mar!"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 40,
+        "fields": {
+            "text": "A velha leoa ainda aceita combater"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 41,
+        "fields": {
+            "text": "\u00c9 hora do homem se humanizar mais"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 42,
+        "fields": {
+            "text": "Ela ficou na fazenda por uma hora"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 43,
+        "fields": {
+            "text": "Seu crime foi totalmente encoberto"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 44,
+        "fields": {
+            "text": "A escurid\u00e3o da garagem assustou a crian\u00e7a"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 45,
+        "fields": {
+            "text": "Ontem n\u00e3o pude fazer minha gin\u00e1stica"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 46,
+        "fields": {
+            "text": "Comer quindim \u00e9 sempre uma boa pedida"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 47,
+        "fields": {
+            "text": "Hoje eu irei precisar de voc\u00ea"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 48,
+        "fields": {
+            "text": "Sem ele o tempo flui num ritmo suave"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 49,
+        "fields": {
+            "text": "A sujeira lan\u00e7ada no rio contamina os peixes"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 50,
+        "fields": {
+            "text": "O jogo ser\u00e1 transmitido bem tarde"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 51,
+        "fields": {
+            "text": "\u00c9 poss\u00edvel que ele j\u00e1 esteja fora de perigo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 52,
+        "fields": {
+            "text": "A explica\u00e7\u00e3o pode ser encontrada na tese"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 53,
+        "fields": {
+            "text": "Meu v\u00f4o tinha sido marcado para as cinco"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 54,
+        "fields": {
+            "text": "Daqui a pouco a gente ir\u00e1 pousar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 55,
+        "fields": {
+            "text": "Estou certo que mere\u00e7o a aten\u00e7\u00e3o dela"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 56,
+        "fields": {
+            "text": "Era um belo enfeite todo de palha"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 57,
+        "fields": {
+            "text": "O com\u00e9rcio daqui tem funcionado bem"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 58,
+        "fields": {
+            "text": "\u00c9 a minha chance de esclarecer a not\u00edcia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 59,
+        "fields": {
+            "text": "A visita transformou-se numa reuni\u00e3o \u00edntima"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 60,
+        "fields": {
+            "text": "O cen\u00e1rio da hist\u00f3ria \u00e9 um sub\u00farbio do Rio"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 61,
+        "fields": {
+            "text": "Eu tenho \u00f3tima raz\u00e3o para festejar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 62,
+        "fields": {
+            "text": "A pequena nave medir\u00e1 o campo magn\u00e9tico"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 63,
+        "fields": {
+            "text": "O pr\u00eamio ser\u00e1 entregue sem sess\u00e3o solene"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 64,
+        "fields": {
+            "text": "A a\u00e7\u00e3o se passa numa cidade calma"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 65,
+        "fields": {
+            "text": "Ela e o namorado v\u00e3o a Portugal de navio"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 66,
+        "fields": {
+            "text": "O adiamento surpreendeu a mim e a todos"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 67,
+        "fields": {
+            "text": "A gente sempre colhe o que plantou"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 68,
+        "fields": {
+            "text": "Aqui \u00e9 onde existem as flores mais interessantes"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 69,
+        "fields": {
+            "text": "A corrida de inverno aconteceu com vibra\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 70,
+        "fields": {
+            "text": "Esse empreendimento ser\u00e1 de enorme sucesso"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 71,
+        "fields": {
+            "text": "As feiras livres n\u00e3o funcionam amanh\u00e3"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 72,
+        "fields": {
+            "text": "Fumar \u00e9 muito prejudicial \u00e0 sa\u00fade"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 73,
+        "fields": {
+            "text": "Entre com seu c\u00f3digo e o n\u00famero da conta"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 74,
+        "fields": {
+            "text": "Reflita antes e discuta depois"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 75,
+        "fields": {
+            "text": "As aulas dele s\u00e3o bastante agrad\u00e1veis"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 76,
+        "fields": {
+            "text": "Usar aditivos pode ser desastroso"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 77,
+        "fields": {
+            "text": "O clima n\u00e3o \u00e9 mau em Calcut\u00e1"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 78,
+        "fields": {
+            "text": "A locomotiva vem sem muita carga"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 79,
+        "fields": {
+            "text": "Ainda \u00e9 uma boa temporada para o cinema"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 80,
+        "fields": {
+            "text": "Os maiores picos da Terra ficam debaixo d'\u00e1gua"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 81,
+        "fields": {
+            "text": "A inaugura\u00e7\u00e3o da vila \u00e9 quarta-feira"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 82,
+        "fields": {
+            "text": "S\u00f3 vota quem tiver o t\u00edtulo de eleitor"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 83,
+        "fields": {
+            "text": "\u00c9 fundamental buscar a raz\u00e3o da exist\u00eancia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 84,
+        "fields": {
+            "text": "A temperatura s\u00f3 \u00e9 boa mais cedo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 85,
+        "fields": {
+            "text": "Em muitas regi\u00f5es a popula\u00e7\u00e3o est\u00e1 diminuindo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 86,
+        "fields": {
+            "text": "Nunca se pode ficar em cima do muro"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 87,
+        "fields": {
+            "text": "Pra quem v\u00ea de fora o panorama \u00e9 desolador"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 88,
+        "fields": {
+            "text": "\u00c9 bom te ver colhendo flores"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 89,
+        "fields": {
+            "text": "Eu me banho no lago ao amanhecer"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 90,
+        "fields": {
+            "text": "\u00c9 fundamental chegar a uma solu\u00e7\u00e3o comum"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 91,
+        "fields": {
+            "text": "H\u00e1 previs\u00e3o de muito nevoeiro no Rio"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 92,
+        "fields": {
+            "text": "Muitos m\u00f3veis vir\u00e3o \u00e0s cinco da tarde"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 93,
+        "fields": {
+            "text": "A casa pode desabar em algumas horas"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 94,
+        "fields": {
+            "text": "O candidato falou como se estivesse eleito"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 95,
+        "fields": {
+            "text": "A id\u00e9ia \u00e9 falha, mas interessa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 96,
+        "fields": {
+            "text": "O dia est\u00e1 bom para passear no quintal"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 97,
+        "fields": {
+            "text": "Minhas correspond\u00eancias n\u00e3o est\u00e3o em casa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 98,
+        "fields": {
+            "text": "A sa\u00edda para a crise dele \u00e9 o di\u00e1logo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 99,
+        "fields": {
+            "text": "Finalmente o mau tempo deixou o continente"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 100,
+        "fields": {
+            "text": "Um casal de gatos come no telhado"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 101,
+        "fields": {
+            "text": "A cantora foi apresentar seu \u00faltimo sucesso"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 102,
+        "fields": {
+            "text": "L\u00e1 \u00e9 um lugar \u00f3timo para tomar uns chopinhos"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 103,
+        "fields": {
+            "text": "O musical consumiu sete meses de ensaio"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 104,
+        "fields": {
+            "text": "Nosso baile inicia ap\u00f3s as nove"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 105,
+        "fields": {
+            "text": "Apesar desses resultados, tomarei uma decis\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 106,
+        "fields": {
+            "text": "A verdade n\u00e3o poupa nem as celebridades"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 107,
+        "fields": {
+            "text": "As queimadas devem diminuir este ano"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 108,
+        "fields": {
+            "text": "O v\u00e3o entre o trem e a plataforma \u00e9 muito grande"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 109,
+        "fields": {
+            "text": "Infelizmente n\u00e3o compareci ao encontro"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 110,
+        "fields": {
+            "text": "As crian\u00e7as conheceram o filhote de ema"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 111,
+        "fields": {
+            "text": "A bolsa de valores ficou em baixa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 112,
+        "fields": {
+            "text": "O congresso volta atr\u00e1s em sua palavra"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 113,
+        "fields": {
+            "text": "A m\u00e9dica receitou que eles mudassem de clima"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 114,
+        "fields": {
+            "text": "N\u00e3o \u00e9 permitido fumar no interior do \u00f4nibus"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 115,
+        "fields": {
+            "text": "A apresenta\u00e7\u00e3o foi cancelada por causa do som"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 116,
+        "fields": {
+            "text": "Uma garota foi presa ontem \u00e0 noite"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 117,
+        "fields": {
+            "text": "O prato do dia \u00e9 couve com atum"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 118,
+        "fields": {
+            "text": "Eu viajarei ao Canad\u00e1 amanh\u00e3"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 119,
+        "fields": {
+            "text": "A balsa \u00e9 o meio de transporte daqui"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 120,
+        "fields": {
+            "text": "O gr\u00eamio ganhou a quadra de esportes"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 121,
+        "fields": {
+            "text": "Hoje irei \u00e0 vila sem meu filho"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 122,
+        "fields": {
+            "text": "Essa magia n\u00e3o acontece todo dia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 123,
+        "fields": {
+            "text": "Ser\u00e1 bom que voc\u00ea estude esse assunto"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 124,
+        "fields": {
+            "text": "O menu inclu\u00eda pratos bem saborosos"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 125,
+        "fields": {
+            "text": "Podia dizer as horas, por favor?"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 126,
+        "fields": {
+            "text": "A casa \u00e9 ornamentada com flores do campo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 127,
+        "fields": {
+            "text": "A Terra \u00e9 farta, mas n\u00e3o infinita"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 128,
+        "fields": {
+            "text": "O sinal emitido \u00e9 captado por receptores."
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 129,
+        "fields": {
+            "text": "A mensalidade aumentou mais que a infla\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 130,
+        "fields": {
+            "text": "O tele-jornal termina \u00e0s sete da noite"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 131,
+        "fields": {
+            "text": "A cabine telef\u00f4nica fica na pr\u00f3xima rua"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 132,
+        "fields": {
+            "text": "Defender a ecologia \u00e9 manter a vida"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 133,
+        "fields": {
+            "text": "Nesse ver\u00e3o o calor est\u00e1 insuport\u00e1vel"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 134,
+        "fields": {
+            "text": "Um jardim exige muito trabalho"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 135,
+        "fields": {
+            "text": "O mam\u00e3o que eu comprei estava \u00f3timo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 136,
+        "fields": {
+            "text": "Meu primo falar\u00e1 com a ger\u00eancia amanh\u00e3"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 137,
+        "fields": {
+            "text": "De dia apague a luz sempre"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 138,
+        "fields": {
+            "text": "A sociedade uruguaia tem que se mobilizar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 139,
+        "fields": {
+            "text": "Suas atitudes s\u00e3o bem calmas"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 140,
+        "fields": {
+            "text": "Dezenas de cabos eleitorais buscavam apoio"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 141,
+        "fields": {
+            "text": "A vit\u00f3ria foi paga com muito sangue"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 142,
+        "fields": {
+            "text": "Nossa filha tem amor por animais"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 143,
+        "fields": {
+            "text": "Esse peixe \u00e9 mais fatal que certas cobras"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 144,
+        "fields": {
+            "text": "O time continua lutando pelo sucesso"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 145,
+        "fields": {
+            "text": "Essa medida foi devidamente alterada"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 146,
+        "fields": {
+            "text": "O estilete \u00e9 uma arma perigosa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 147,
+        "fields": {
+            "text": "Aguarde, quinta eu venho jantar em casa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 148,
+        "fields": {
+            "text": "A mudan\u00e7aa \u00e9 lenta, por\u00e9m duradoura"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 149,
+        "fields": {
+            "text": "O clima n\u00e3o \u00e9 mais seco no interior"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 150,
+        "fields": {
+            "text": "A sensibilidade indicar\u00e1 a escolha"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 151,
+        "fields": {
+            "text": "A Amaz\u00f4nia \u00e9 a reserva ecol\u00f3gica do globo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 152,
+        "fields": {
+            "text": "O minist\u00e9rio mudou demais com a elei\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 153,
+        "fields": {
+            "text": "Novos rumos se abrem para a inform\u00e1tica"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 154,
+        "fields": {
+            "text": "O capital de uma empresa depende da produ\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 155,
+        "fields": {
+            "text": "Se n\u00e3o fosse ela, tudo seria contido"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 156,
+        "fields": {
+            "text": "A principal personagem no filme \u00e9 uma gueixa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 157,
+        "fields": {
+            "text": "Receba seu jornal em sua casa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 158,
+        "fields": {
+            "text": "A juventude tinha que revolucionar a escola"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 159,
+        "fields": {
+            "text": "A atriz ter\u00e1 quatro meses para ensaiar seu canto"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 160,
+        "fields": {
+            "text": "Muito prazer em conhec\u00ea-lo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 161,
+        "fields": {
+            "text": "Eles estavam sem um bom equipamento"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 162,
+        "fields": {
+            "text": "O sol ilumina a fachada de tarde"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 163,
+        "fields": {
+            "text": "A corre\u00e7\u00e3o do exame est\u00e1 coerente"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 164,
+        "fields": {
+            "text": "As portas s\u00e3o antigas"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 165,
+        "fields": {
+            "text": "Sobrevoamos Natal acima das nuvens"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 166,
+        "fields": {
+            "text": "Trabalhei mais do que podia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 167,
+        "fields": {
+            "text": "Hoje eu acordei muito calmo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 168,
+        "fields": {
+            "text": "Esse canal \u00e9 pouco informativo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 169,
+        "fields": {
+            "text": "Parece que nascemos ontem"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 170,
+        "fields": {
+            "text": "Receba meus parab\u00e9ns pela apresenta\u00e7\u00e3o"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 171,
+        "fields": {
+            "text": "Eu planejo uma viagem no feriado"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 172,
+        "fields": {
+            "text": "No lado de c\u00e1 do rio h\u00e1 uma boa sombra"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 173,
+        "fields": {
+            "text": "A maioria dos visitantes gosta deste monumento"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 174,
+        "fields": {
+            "text": "Minha filha \u00e9 especialista em m\u00fasica sacra"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 175,
+        "fields": {
+            "text": "A casa s\u00f3 tem um quarto"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 176,
+        "fields": {
+            "text": "A dura\u00e7\u00e3o do simp\u00f3sio \u00e9 de cinco dias"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 177,
+        "fields": {
+            "text": "Ao contr\u00e1rio de nossa expectativa, correu tranquilo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 178,
+        "fields": {
+            "text": "A inten\u00e7\u00e3o \u00e9 obter apoio do governante"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 179,
+        "fields": {
+            "text": "A fila aumentou ao longo do dia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 180,
+        "fields": {
+            "text": "\u00c0 noite a temperatura deve ir a zero"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 181,
+        "fields": {
+            "text": "A proposta foi inspecionada pela ger\u00eancia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 182,
+        "fields": {
+            "text": "O quadro mostra uma face do cotidiano"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 183,
+        "fields": {
+            "text": "J\u00e1 era bem tarde quando ele me abordou"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 184,
+        "fields": {
+            "text": "O can\u00e1rio canta ao amanhecer"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 185,
+        "fields": {
+            "text": "A lojinha fica bem na esquina de casa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 186,
+        "fields": {
+            "text": "Meu time se consagrou como o melhor"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 187,
+        "fields": {
+            "text": "Um instituto deve servir a sua meta"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 188,
+        "fields": {
+            "text": "Ele entende quando se fala pausadamente"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 189,
+        "fields": {
+            "text": "Seu saldo banc\u00e1rio est\u00e1 baixo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 190,
+        "fields": {
+            "text": "O term\u00f4metro marcava um grau"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 191,
+        "fields": {
+            "text": "O discurso de abertura \u00e9 bem longo"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 192,
+        "fields": {
+            "text": "Eu precisei de microfone na confer\u00eancia"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 193,
+        "fields": {
+            "text": "Joyce esticou sua temporada at\u00e9 quinta"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 194,
+        "fields": {
+            "text": "Nada como um almo\u00e7o ao ar livre"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 195,
+        "fields": {
+            "text": "Nossa filha \u00e9 a primeira aluna da classe"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 196,
+        "fields": {
+            "text": "Gostaria de deitar um pouco"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 197,
+        "fields": {
+            "text": "N\u00e3o fizemos uma viagem muito cansativa"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 198,
+        "fields": {
+            "text": "Ainda tenho cinco telefonemas para dar"
+        }
+    },
+    {
+        "model": "accent_collector.sentence",
+        "pk": 199,
+        "fields": {
+            "text": "O hot\u00e9is do sudoeste s\u00e3o fant\u00e1sticos"
+        }
+    }
+]
