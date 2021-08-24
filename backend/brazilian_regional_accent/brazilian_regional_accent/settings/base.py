@@ -27,6 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+RECAPTCHA_SITE_KEY = ""
+RECAPTCHA_SECRET_KEY = ""
+SECRET_KEY = ""
+
+TZINFO = "America/Sao_Paulo"
+
+# MinIO
+
+MINIO_ENDPOINT = ""
+MINIO_ACCESS_KEY = ""
+MINIO_SECRET_KEY = ""
+MINIO_BUCKET_NAME = ""
+
 # Application definition
 
 INSTALLED_APPS = [

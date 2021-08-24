@@ -1,9 +1,15 @@
+import os
+import uuid
 import datetime
 
+import pytz
+from minio import Minio
+from django.conf import settings
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework import views, viewsets
 from rest_framework import permissions
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from .models import (
     State,
@@ -70,14 +76,14 @@ class NewRecordViewSet(viewsets.ViewSet):
         loguru.logger.info(f"Request data: {request.data}")
         if not "recaptcha_token" in request.data:
             return Response(
-                {"error": "recaptcha_token is required"},
+                {"error": "O token do reCaptcha é obrigatório!"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         # Validate recaptcha token
         validation = validate_recaptcha_token(request.data["recaptcha_token"])
         if not validation["success"]:
             return Response(
-                {"error": "recaptcha_token is not valid"},
+                {"error": "O token do reCaptcha é inválido!"},
                 status=status.HTTP_403_FORBIDDEN,
             )
         try:
@@ -86,7 +92,7 @@ class NewRecordViewSet(viewsets.ViewSet):
             gender = queryset.filter(radio_text=request.data["gender"]).first()
             if gender is None:
                 return Response(
-                    {"error": f"unknown gender {gender}"},
+                    {"error": f"Gênero desconhecido: {gender}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             # Validate age
@@ -94,7 +100,7 @@ class NewRecordViewSet(viewsets.ViewSet):
                 age = int(request.data["age"])
             except:
                 return Response(
-                    {"error": f"age {request.data['age']} is not a number"},
+                    {"error": f"Idade {request.data['age']} não é um número"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             # Get profession
@@ -104,13 +110,13 @@ class NewRecordViewSet(viewsets.ViewSet):
             birth_state = State.objects.filter(abbreviation=state).first()
             if birth_state is None:
                 return Response(
-                    {"error": f"unknown state {state}"},
+                    {"error": f"Estado desconhecido: {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             birth_city = City.objects.filter(name=city, state=birth_state).first()
             if birth_city is None:
                 return Response(
-                    {"error": f"unknown city {city} in state {state}"},
+                    {"error": f"Cidade {city} desconhecida no estado {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             # Validate current_city
@@ -118,13 +124,13 @@ class NewRecordViewSet(viewsets.ViewSet):
             current_state = State.objects.filter(abbreviation=state).first()
             if current_state is None:
                 return Response(
-                    {"error": f"unknown state {state}"},
+                    {"error": f"Estado desconhecido: {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             current_city = City.objects.filter(name=city, state=current_state).first()
             if current_city is None:
                 return Response(
-                    {"error": f"unknown city {city} in state {state}"},
+                    {"error": f"Cidade {city} desconhecida no estado {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             # Validate parents_original_city
@@ -132,7 +138,7 @@ class NewRecordViewSet(viewsets.ViewSet):
             parents_original_state = State.objects.filter(abbreviation=state).first()
             if parents_original_state is None:
                 return Response(
-                    {"error": f"unknown state {state}"},
+                    {"error": f"Estado desconhecido: {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             parents_original_city = City.objects.filter(
@@ -140,7 +146,7 @@ class NewRecordViewSet(viewsets.ViewSet):
             ).first()
             if parents_original_city is None:
                 return Response(
-                    {"error": f"unknown city {city} in state {state}"},
+                    {"error": f"Cidade {city} desconhecida no estado {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
             # Validate years_on_current_city
@@ -149,7 +155,7 @@ class NewRecordViewSet(viewsets.ViewSet):
             except:
                 return Response(
                     {
-                        "error": f"years_on_current_city {request.data['years_on_current_city']} is not a number"
+                        "error": f"Anos na cidade atual {request.data['years_on_current_city']} não é um número"
                     },
                     status=status.HTTP_400_BAD_REQUEST,
                 )
@@ -167,27 +173,40 @@ class NewRecordViewSet(viewsets.ViewSet):
             sentence = Sentence.objects.filter(text=request.data["sentence"]).first()
             if sentence is None:
                 return Response(
-                    {"error": f"unknown sentence {request.data['sentence']}"},
+                    {"error": f"Frase desconhecida: {request.data['sentence']}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
+            # Upload audio to MinIO
+            minio_client = Minio(
+                settings.MINIO_ENDPOINT,
+                access_key=settings.MINIO_ACCESS_KEY,
+                secret_key=settings.MINIO_SECRET_KEY,
+            )
+            audio_id = str(uuid.uuid4())
+            tmp_filename = f"/tmp/{audio_id}.wav"
+            audio_blob: InMemoryUploadedFile = request.data["audio_blob"]
+            with open(tmp_filename, "wb") as f:
+                f.write(audio_blob.read())
+            minio_client.fput_object(
+                settings.MINIO_BUCKET_NAME,
+                f"accent/{audio_id}.wav",
+                tmp_filename,
+                content_type="audio/wav",
+            )
+            # Delete temporary file
+            os.remove(tmp_filename)
             # Build Record
-            # TODO: Upload audio file and get url
             record = Record(
                 speaker=speaker,
                 sentence=sentence,
-                date=datetime.datetime.now(),
-                audio_file_path="",
+                date=datetime.datetime.now(tz=pytz.timezone(settings.TZINFO)),
+                audio_file_path=f"accent/{audio_id}.wav",
             )
             speaker.save()
             record.save()
         except KeyError:
             return Response(
-                {"error": "missing parameter"},
+                {"error": "Faltam parâmetros"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         return views.Response({"status": "ok"})
-        # serializer = RecordSerializer(data=request.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(serializer.data, status=status.HTTP_201_CREATED)
-        # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

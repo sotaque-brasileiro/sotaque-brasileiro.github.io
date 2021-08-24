@@ -87,7 +87,31 @@ export default {
   computed: mapState({
     store_model: (state) => state.form.model,
     store_audio_blob: (state) => state.form.audioBlob,
+    store_gender_list: (state) => state.form.genderList,
+    store_city_list: (state) => state.form.cityList,
   }),
+  mounted() {
+    this.$store.dispatch("form/fetchGenderList");
+    this.$store.dispatch("form/fetchCityList");
+  },
+  watch: {
+    store_gender_list: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.personalInformationTabSchema.fields[1].values = newVal;
+        }
+      },
+    },
+    store_city_list: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.personalInformationTabSchema.fields[3].values = newVal;
+          this.personalInformationTabSchema.fields[4].values = newVal;
+          this.personalInformationTabSchema.fields[6].values = newVal;
+        }
+      },
+    },
+  },
   data() {
     return {
       model: {
@@ -158,7 +182,7 @@ export default {
             label: "Qual seu gênero?",
             model: "gender",
             required: true,
-            values: ["Masculino", "Feminino", "Outro / Prefiro não informar"],
+            values: ["Carregando..."],
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -179,12 +203,7 @@ export default {
             label: "Em que cidade você nasceu?",
             model: "birth_city",
             required: true,
-            values: [
-              "Americana/SP",
-              "Nova Iguaçu/RJ",
-              "São Paulo/SP",
-              "Rio de Janeiro/RJ",
-            ],
+            values: ["Carregando..."],
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -197,12 +216,7 @@ export default {
             label: "Em qual cidade você mora atualmente?",
             model: "current_city",
             required: true,
-            values: [
-              "Americana/SP",
-              "Nova Iguaçu/RJ",
-              "São Paulo/SP",
-              "Rio de Janeiro/RJ",
-            ],
+            values: ["Carregando..."],
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -232,13 +246,7 @@ export default {
               "Em que cidade seus pais nasceram? Caso sejam de cidades diferentes, informe apenas uma de sua escolha.",
             model: "parents_original_city",
             required: true,
-            values: [
-              "Americana/SP",
-              "Nova Iguaçu/RJ",
-              "São Paulo/SP",
-              "Rio de Janeiro/RJ",
-              "Turmalina/SP",
-            ],
+            values: ["Carregando..."],
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
