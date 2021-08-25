@@ -1,65 +1,74 @@
 <template>
-  <form-wizard
-    @on-complete="onComplete"
-    color="green"
-    error-color="#a94442"
-    title="Lorem ipsum"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor."
-    back-button-text="Voltar"
-    next-button-text="Avançar"
-    finish-button-text="Enviar"
-  >
-    <tab-content
-      title="Introdução"
-      :before-change="validateIntroductionTab"
-      icon="ti-info-alt"
+  <span>
+    <div class="col-xs-12"><h1>Sotaque Brasileiro</h1></div>
+    <div class="col-xs-12">
+      <h3>
+        Uma base de dados para estudo de regionalismos brasileiros através da
+        voz.
+      </h3>
+    </div>
+    <form-wizard
+      @on-complete="onComplete"
+      color="green"
+      error-color="#a94442"
+      title=""
+      subtitle="."
+      back-button-text="Voltar"
+      next-button-text="Avançar"
+      finish-button-text="Enviar"
     >
-      <div class="container h-100">
-        <vue-form-generator
-          :model="model"
-          :schema="introductionTabSchema"
-          :options="formOptions"
-          ref="introductionTab"
-        ></vue-form-generator>
-      </div>
-    </tab-content>
-    <tab-content
-      title="Coleta de informações"
-      :before-change="validatePersonalInformationTab"
-      icon="ti-user"
-    >
-      <div class="container h-100">
-        <vue-form-generator
-          :model="model"
-          :schema="personalInformationTabSchema"
-          :options="formOptions"
-          ref="personalInformationTab"
-        ></vue-form-generator>
-      </div>
-    </tab-content>
-    <tab-content title="Instruções para as gravações" icon="ti-help-alt">
-      <div class="container h-100">
-        <RecordInstructions />
-      </div>
-    </tab-content>
-    <tab-content title="Gravações" icon="ti-microphone">
-      <div class="container h-100">
-        <AudioRecorder :model="model" />
-        <div style="display: inline-block">
-          <div style="position: relative; margin: auto auto auto auto">
-            <vue-recaptcha
-              ref="recaptcha"
-              @verify="onCaptchaVerified"
-              @expired="onCaptchaExpired"
-              size="invisible"
-              sitekey="6LcIfxocAAAAANzwga4Y1d_HLwrYbQJLlxgENqsU"
-            >
-            </vue-recaptcha>
+      <tab-content
+        title="Introdução"
+        :before-change="validateIntroductionTab"
+        icon="ti-info-alt"
+      >
+        <div class="container h-100">
+          <vue-form-generator
+            :model="model"
+            :schema="introductionTabSchema"
+            :options="formOptions"
+            ref="introductionTab"
+          ></vue-form-generator>
+        </div>
+      </tab-content>
+      <tab-content
+        title="Coleta de informações"
+        :before-change="validatePersonalInformationTab"
+        icon="ti-user"
+      >
+        <div class="container h-100">
+          <vue-form-generator
+            :model="model"
+            :schema="personalInformationTabSchema"
+            :options="formOptions"
+            ref="personalInformationTab"
+          ></vue-form-generator>
+        </div>
+      </tab-content>
+      <tab-content title="Instruções para as gravações" icon="ti-help-alt">
+        <div class="container h-100">
+          <RecordInstructions />
+        </div>
+      </tab-content>
+      <tab-content title="Gravações" icon="ti-microphone">
+        <div class="container h-100">
+          <AudioRecorder :model="model" />
+          <div style="display: inline-block">
+            <div style="position: relative; margin: auto auto auto auto">
+              <vue-recaptcha
+                ref="recaptcha"
+                @verify="onCaptchaVerified"
+                @expired="onCaptchaExpired"
+                size="invisible"
+                sitekey="6LcIfxocAAAAANzwga4Y1d_HLwrYbQJLlxgENqsU"
+              >
+              </vue-recaptcha>
+            </div>
           </div>
         </div>
-      </div>
-    </tab-content>
-  </form-wizard>
+      </tab-content>
+    </form-wizard>
+  </span>
 </template>
 
 <script>
@@ -101,18 +110,7 @@ export default {
           {
             type: "label",
             label:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper \
-              dictum euismod. Aenean convallis molestie quam vitae accumsan. Integer \
-              quis nunc vel lectus venenatis suscipit. Vivamus aliquam, turpis sit amet \
-              vehicula congue, diam ligula ultrices nunc, et ullamcorper ligula ex in \
-              velit. Ut dignissim tortor in ex tincidunt, at aliquet dolor consequat. \
-              Suspendisse eu ligula eu mi pellentesque vestibulum. Orci varius natoque \
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer \
-              enim lorem, feugiat a sodales sagittis, porttitor sit amet quam. Nam \
-              accumsan molestie nulla, vitae porttitor lorem. Vestibulum molestie \
-              placerat facilisis. Maecenas pharetra feugiat quam, eget faucibus ligula \
-              varius sit amet. In vitae enim malesuada, gravida ante a, elementum leo. \
-              Proin vel metus ex. Morbi tristique sit amet ex sit amet auctor.",
+              'A "Sotaque Brasileiro" é uma base de dados contendo gravações de voz de diversos indivíduos brasileiros, esses não identificáveis, e informações como idade, regiões que viveram e profissão. O propósito de construir essa base de dados é realizar estudos sobre a regionalidade brasileira através da voz. Essa base ficará disponível publicamente por tempo indeterminado, com atualizações conforme a disponibilidade dos responsáveis por ela. Não há nenhum interesse por parte dos criadores da base de dados em identificar os participantes. Não são coletados dados que permitam a identificação dos participantes. A veracidade dos dados informados durante a pesquisa, assim como o conteúdo dos áudios gravados, é de total responsabilidade do participante. Visto que não é possível identificar os participantes, também não é possível remover gravações realizadas para essa pesquisa. O participante deve ler e concordar com esses termos para participar da pesquisa.',
           },
           {
             type: "checkbox",
@@ -234,7 +232,7 @@ export default {
           {
             type: "input",
             inputType: "text",
-            label: "Qual sua profissão?",
+            label: "Qual sua profissão? (OPCIONAL)",
             model: "profession",
             required: false,
             styleClasses: "col-md-6 col-xs-12",

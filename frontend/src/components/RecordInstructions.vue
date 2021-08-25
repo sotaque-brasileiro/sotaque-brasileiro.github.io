@@ -1,23 +1,46 @@
 <template>
-  <span>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper
-    dictum euismod. Aenean convallis molestie quam vitae accumsan. Integer quis
-    nunc vel lectus venenatis suscipit. Vivamus aliquam, turpis sit amet
-    vehicula congue, diam ligula ultrices nunc, et ullamcorper ligula ex in
-    velit. Ut dignissim tortor in ex tincidunt, at aliquet dolor consequat.
-    Suspendisse eu ligula eu mi pellentesque vestibulum. Orci varius natoque
-    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer
-    enim lorem, feugiat a sodales sagittis, porttitor sit amet quam. Nam
-    accumsan molestie nulla, vitae porttitor lorem. Vestibulum molestie placerat
-    facilisis. Maecenas pharetra feugiat quam, eget faucibus ligula varius sit
-    amet. In vitae enim malesuada, gravida ante a, elementum leo. Proin vel
-    metus ex. Morbi tristique sit amet ex sit amet auctor.
-  </span>
+  <div class="col-xs-12">
+    <p>
+      Na próxima etapa, você poderá iniciar as gravações de áudio. Escolha, de
+      preferência, um ambiente silencioso ou com pouco ruído, para tentar
+      adquirir a melhor qualidade de áudio possível. Assim que abrir, você verá
+      uma frase e um botão para iniciar a gravação, como na imagem abaixo:
+    </p>
+    <img src="../assets/acc01.png" />
+    <p>
+      Você poderá iniciar a gravação clicando no botão. Assim que você iniciar a
+      gravação, ele mudará de cor para vermelho e será escrito "Gravando", como
+      a imagem abaixo:
+    </p>
+    <img src="../assets/acc02.png" />
+    <p>
+      Quando você terminar a gravação, você poderá clicar no botão para parar a
+      gravação. Assim que o fizer, ele mudará de cor para verde e será exibido
+      um reprodutor de áudio, para que você possa conferir o que foi gravado.
+    </p>
+    <img src="../assets/acc03.png" />
+    <p>
+      Caso o áudio esteja de acordo com o esperado, você poderá clicar no botão
+      "Enviar" para enviar o áudio para o servidor. Assim que você clicar, uma
+      mensagem de confirmação será exibida. Caso o áudio esteja incorreto, você
+      poderá regravá-lo, clicando novamente no mesmo botão.
+    </p>
+    <img src="../assets/acc04.png" />
+    <p>
+      Quando clicar em "Ok" na mensagem de confirmação, outra frase será
+      exibida. Você poderá gravar quantas quiser. Quando quiser parar, é só
+      fechar essa janela.
+    </p>
+    <img src="../assets/acc05.png" />
+  </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
+img {
+  border: 5px solid #555;
+}
 </style>
