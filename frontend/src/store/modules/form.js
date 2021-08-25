@@ -6,8 +6,11 @@ const state = () => ({
   model: null,
   audioBlob: null,
   genderList: [],
-  cityList: [],
+  birthCityList: [],
+  currentCityList: [],
+  parentsCityList: [],
   stateList: [],
+  sentence: "",
 });
 
 // getters
@@ -15,8 +18,11 @@ const getters = {
   model: state => state.model,
   audioBlob: state => state.audioBlob,
   genderList: state => state.genderList,
-  cityList: state => state.cityList,
+  birthCityList: state => state.birthCityList,
+  currentCityList: state => state.currentCityList,
+  parentsCityList: state => state.parentsCityList,
   stateList: state => state.stateList,
+  sentence: state => state.sentence,
 };
 
 // actions
@@ -41,17 +47,13 @@ const actions = {
     getGenders(url)
     commit('setGenderList', genders)
   },
-  // TODO: Filter cities by state, when selected
-  fetchCityList: ({ commit }) => {
-    function mergeCityName(item) {
-      return item.name + "/" + item.state.abbreviation;
-    }
+  fetchBirthCityList: ({ commit }, state) => {
     function getCities(url) {
       axios
         .get(url)
         .then(({ data }) => {
           data.results.forEach((item) => {
-            cities.push(mergeCityName(item))
+            cities.push(item.name)
           })
           if (data.next) {
             getCities(data.next)
@@ -59,18 +61,53 @@ const actions = {
         })
     }
     let cities = []
-    let url = config.api.getCitiesUrl
+    let url = config.api.getCitiesUrl + "?state=" + state
     getCities(url)
-    commit('setCityList', cities)
+    commit('setBirthCityList', cities)
   },
-  // TODO: Review this piece of code
+  fetchCurrentCityList: ({ commit }, state) => {
+    function getCities(url) {
+      axios
+        .get(url)
+        .then(({ data }) => {
+          data.results.forEach((item) => {
+            cities.push(item.name)
+          })
+          if (data.next) {
+            getCities(data.next)
+          }
+        })
+    }
+    let cities = []
+    let url = config.api.getCitiesUrl + "?state=" + state
+    getCities(url)
+    commit('setCurrentCityList', cities)
+  },
+  fetchParentsCityList: ({ commit }, state) => {
+    function getCities(url) {
+      axios
+        .get(url)
+        .then(({ data }) => {
+          data.results.forEach((item) => {
+            cities.push(item.name)
+          })
+          if (data.next) {
+            getCities(data.next)
+          }
+        })
+    }
+    let cities = []
+    let url = config.api.getCitiesUrl + "?state=" + state
+    getCities(url)
+    commit('setParentsCityList', cities)
+  },
   fetchStateList: ({ commit }) => {
     function getStates(url) {
       axios
         .get(url)
         .then(({ data }) => {
           data.results.forEach((item) => {
-            states.push(item.name)
+            states.push(item.abbreviation)
           })
           if (data.next) {
             getStates(data.next)
@@ -81,7 +118,18 @@ const actions = {
     let url = config.api.getStatesUrl
     getStates(url)
     commit('setStateList', states)
-  }
+  },
+  fetchSentence: ({ commit }, state) => {
+    function getSentence(url) {
+      axios
+        .get(url)
+        .then(({ data }) => {
+          commit('setSentence', data.results[0].text)
+        })
+    }
+    let url = config.api.getSentenceUrl + "?state=" + state
+    getSentence(url)
+  },
 };
 
 // mutations
@@ -95,9 +143,21 @@ const mutations = {
   setGenderList: (state, genderList) => {
     state.genderList = genderList;
   },
-  setCityList: (state, cityList) => {
-    state.cityList = cityList;
-  }
+  setBirthCityList: (state, birthCityList) => {
+    state.birthCityList = birthCityList;
+  },
+  setCurrentCityList: (state, currentCityList) => {
+    state.currentCityList = currentCityList;
+  },
+  setParentsCityList: (state, parentsCityList) => {
+    state.parentsCityList = parentsCityList;
+  },
+  setStateList: (state, stateList) => {
+    state.stateList = stateList;
+  },
+  setSentence: (state, sentence) => {
+    state.sentence = sentence;
+  },
 };
 
 export default {

@@ -3,11 +3,18 @@
     <div class="col-xs-12">
       <div class="row">
         <h4>Grave sua voz dizendo a seguinte frase:</h4>
-        <h2>{{ message }}</h2>
+        <h2>{{ store_sentence }}</h2>
       </div>
       <div class="row">
-        <vue-record-audio @result="onResult" />
+        <vue-record-audio
+          :mode="`press`"
+          @result="onResult"
+          @stream="onStream"
+        />
       </div>
+    </div>
+    <div v-if="recording" class="col-md-12 col-xs-12">
+      <h4>Gravando...</h4>
     </div>
     <div v-if="this.audioBlob" class="col-md-12 col-xs-12">
       <h4>Confira a sua gravação aqui:</h4>
@@ -26,16 +33,19 @@ Vue.use(VueRecord);
 export default {
   methods: {
     onResult(data) {
+      this.recording = false;
       this.audioBlob = data;
       this.$store.dispatch("form/setAudioBlob", data);
+    },
+    onStream() {
+      this.recording = true;
     },
   },
   data() {
     return {
       audioSrc: null,
       audioBlob: null,
-      message:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor",
+      recording: false,
     };
   },
   props: {
@@ -47,6 +57,7 @@ export default {
   computed: {
     ...mapState({
       store_audio_blob: (state) => state.form.audioBlob,
+      store_sentence: (state) => state.form.sentence,
     }),
   },
   watch: {

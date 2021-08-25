@@ -1,6 +1,7 @@
 import os
 import uuid
 import datetime
+from django.db.models import Count
 
 import pytz
 from minio import Minio
@@ -29,9 +30,6 @@ from .serializers import (
 )
 from .utils import validate_recaptcha_token
 
-# TODO: remove later
-import loguru
-
 
 class StateViewSet(viewsets.ModelViewSet):
     queryset = State.objects.all().order_by("abbreviation")
@@ -40,9 +38,15 @@ class StateViewSet(viewsets.ModelViewSet):
 
 
 class CityViewSet(viewsets.ModelViewSet):
-    queryset = City.objects.all().order_by("name")
     serializer_class = CitySerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self):
+        queryset = City.objects.all().order_by("name")
+        state = self.request.query_params.get("state", None)
+        if state is not None:
+            queryset = queryset.filter(state__abbreviation=state)
+        return queryset
 
 
 class GenderViewSet(viewsets.ModelViewSet):
@@ -52,9 +56,23 @@ class GenderViewSet(viewsets.ModelViewSet):
 
 
 class SentenceViewSet(viewsets.ModelViewSet):
-    queryset = Sentence.objects.all().order_by("text")
     serializer_class = SentenceSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get_queryset(self):
+        queryset = Sentence.objects.all()
+        state = self.request.query_params.get("state", None)
+        if state is not None:
+            # Get sentence with the lowest number of records
+            sentence = (
+                queryset.annotate(num_records=Count("record"))
+                .order_by("num_records")
+                .first()
+            )
+            queryset = queryset.filter(id=sentence.id)
+        else:
+            queryset = queryset.order_by("text")
+        return queryset
 
 
 class SpeakerViewSet(viewsets.ModelViewSet):
@@ -73,7 +91,6 @@ class NewRecordViewSet(viewsets.ViewSet):
     permission_classes = (permissions.AllowAny,)
 
     def create(self, request):
-        loguru.logger.info(f"Request data: {request.data}")
         if not "recaptcha_token" in request.data:
             return Response(
                 {"error": "O token do reCaptcha é obrigatório!"},

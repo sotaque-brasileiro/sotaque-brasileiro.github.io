@@ -4,6 +4,7 @@ export default Object.freeze({
     createRecordUrl: 'http://localhost:8080/create_record/',
     getGendersUrl: 'http://localhost:8080/genders/',
     getCitiesUrl: 'http://localhost:8080/cities/',
-    getStatesUrl: 'http://localhost:8080/states/'
+    getStatesUrl: 'http://localhost:8080/states/',
+    getSentenceUrl: 'http://localhost:8080/sentences/',
   },
 })

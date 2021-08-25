@@ -20,9 +20,9 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r"states", views.StateViewSet)
-router.register(r"cities", views.CityViewSet)
+router.register(r"cities", views.CityViewSet, basename="city")
 router.register(r"genders", views.GenderViewSet)
-router.register(r"sentences", views.SentenceViewSet)
+router.register(r"sentences", views.SentenceViewSet, basename="sentence")
 router.register(r"speakers", views.SpeakerViewSet)
 router.register(r"records", views.RecordViewSet)
 router.register(r"create_record", views.NewRecordViewSet, basename="create_record")

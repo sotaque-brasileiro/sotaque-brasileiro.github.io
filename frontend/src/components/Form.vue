@@ -84,52 +84,19 @@ export default {
     RecordInstructions,
     VueRecaptcha,
   },
-  computed: mapState({
-    store_model: (state) => state.form.model,
-    store_audio_blob: (state) => state.form.audioBlob,
-    store_gender_list: (state) => state.form.genderList,
-    store_city_list: (state) => state.form.cityList,
-  }),
-  mounted() {
-    this.$store.dispatch("form/fetchGenderList");
-    this.$store.dispatch("form/fetchCityList");
-  },
-  watch: {
-    store_gender_list: {
-      handler(newVal) {
-        if (!(newVal == null)) {
-          this.personalInformationTabSchema.fields[1].values = newVal;
-        }
-      },
-    },
-    store_city_list: {
-      handler(newVal) {
-        if (!(newVal == null)) {
-          this.personalInformationTabSchema.fields[3].values = newVal;
-          this.personalInformationTabSchema.fields[4].values = newVal;
-          this.personalInformationTabSchema.fields[6].values = newVal;
-        }
-      },
-    },
-  },
-  data() {
-    return {
-      model: {
-        accept_terms: true,
-        age: 24,
-        gender: "Masculino",
-        profession: "Engenheiro de Dados",
-        birth_city: "Americana/SP",
-        current_city: "Rio de Janeiro/RJ",
-        years_on_current_city: 6,
-        parents_original_city: "Turmalina/SP",
-      },
-      formOptions: {
-        validationErrorClass: "has-error",
-        validationSuccessClass: "has-success",
-        validateAfterChanged: true,
-      },
-      introductionTabSchema: {
+  computed: {
+    ...mapState({
+      store_model: (state) => state.form.model,
+      store_audio_blob: (state) => state.form.audioBlob,
+      store_gender_list: (state) => state.form.genderList,
+      store_birth_city_list: (state) => state.form.birthCityList,
+      store_current_city_list: (state) => state.form.currentCityList,
+      store_parents_city_list: (state) => state.form.parentsCityList,
+      store_states_list: (state) => state.form.stateList,
+      store_sentence: (state) => state.form.sentence,
+    }),
+    introductionTabSchema() {
+      var result = {
         fields: [
           {
             type: "label",
@@ -159,8 +126,11 @@ export default {
             },
           },
         ],
-      },
-      personalInformationTabSchema: {
+      };
+      return result;
+    },
+    personalInformationTabSchema() {
+      var result = {
         fields: [
           {
             type: "input",
@@ -182,7 +152,7 @@ export default {
             label: "Qual seu gênero?",
             model: "gender",
             required: true,
-            values: ["Carregando..."],
+            values: this.store_gender_list,
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -191,19 +161,26 @@ export default {
             },
           },
           {
-            type: "input",
-            inputType: "text",
-            label: "Qual sua profissão?",
-            model: "profession",
-            required: false,
+            type: "select",
+            label: "Em que estado você nasceu?",
+            model: "birth_state",
+            required: true,
+            values: this.store_states_list,
             styleClasses: "col-md-6 col-xs-12",
+            validator: (value) => {
+              if (!value) {
+                return "Você deve informar o estado onde nasceu.";
+              } else {
+                this.birth_state = value;
+              }
+            },
           },
           {
             type: "select",
             label: "Em que cidade você nasceu?",
             model: "birth_city",
             required: true,
-            values: ["Carregando..."],
+            values: this.store_birth_city_list,
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -213,10 +190,25 @@ export default {
           },
           {
             type: "select",
+            label: "Em qual estado você mora atualmente?",
+            model: "current_state",
+            required: true,
+            values: this.store_states_list,
+            styleClasses: "col-md-6 col-xs-12",
+            validator: (value) => {
+              if (!value) {
+                return "Você deve informar o estado onde mora atualmente.";
+              } else {
+                this.current_state = value;
+              }
+            },
+          },
+          {
+            type: "select",
             label: "Em qual cidade você mora atualmente?",
             model: "current_city",
             required: true,
-            values: ["Carregando..."],
+            values: this.store_current_city_list,
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
@@ -240,21 +232,109 @@ export default {
             },
           },
           {
+            type: "input",
+            inputType: "text",
+            label: "Qual sua profissão?",
+            model: "profession",
+            required: false,
+            styleClasses: "col-md-6 col-xs-12",
+          },
+          {
+            type: "select",
+            inputType: "select",
+            label:
+              "Em que estado seus pais nasceram? Caso sejam de estados diferentes, informe apenas uma de sua escolha.",
+            model: "parents_original_state",
+            required: true,
+            values: this.store_states_list,
+            styleClasses: "col-md-6 col-xs-12",
+            validator: (value) => {
+              if (!value) {
+                return "Você deve informar o estado onde seus pais nasceram.";
+              } else {
+                this.parents_original_state = value;
+              }
+            },
+          },
+          {
             type: "select",
             inputType: "select",
             label:
               "Em que cidade seus pais nasceram? Caso sejam de cidades diferentes, informe apenas uma de sua escolha.",
             model: "parents_original_city",
             required: true,
-            values: ["Carregando..."],
+            values: this.store_parents_city_list,
             styleClasses: "col-md-6 col-xs-12",
             validator: (value) => {
               if (!value) {
-                return "Você deve informar a cidade onde seus pais nasceram.";
+                return "Você deve informar o estado onde seus pais nasceram.";
               }
             },
           },
         ],
+      };
+      return result;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("form/fetchGenderList");
+    this.$store.dispatch("form/fetchStateList");
+  },
+  watch: {
+    store_city_list: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.personalInformationTabSchema.fields[3].values = newVal;
+          this.personalInformationTabSchema.fields[4].values = newVal;
+          this.personalInformationTabSchema.fields[6].values = newVal;
+        }
+      },
+    },
+    birth_state: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.$store.dispatch("form/fetchBirthCityList", newVal);
+          this.$store.dispatch("form/fetchSentence", newVal);
+        }
+      },
+    },
+    current_state: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.$store.dispatch("form/fetchCurrentCityList", newVal);
+        }
+      },
+    },
+    parents_original_state: {
+      handler(newVal) {
+        if (!(newVal == null)) {
+          this.$store.dispatch("form/fetchParentsCityList", newVal);
+        }
+      },
+    },
+  },
+  data() {
+    return {
+      birth_state: "",
+      current_state: "",
+      parents_original_state: "",
+      model: {
+        accept_terms: false,
+        age: null,
+        gender: null,
+        profession: "",
+        birth_state: null,
+        birth_city: null,
+        current_state: null,
+        current_city: null,
+        years_on_current_city: null,
+        parents_original_state: null,
+        parents_original_city: null,
+      },
+      formOptions: {
+        validationErrorClass: "has-error",
+        validationSuccessClass: "has-success",
+        validateAfterChanged: true,
       },
     };
   },
@@ -269,7 +349,6 @@ export default {
         return;
       }
       this.$refs.recaptcha.execute();
-      // alert("Nice mlk!");
     },
     onCaptchaVerified: function (recaptchaToken) {
       this.$refs.recaptcha.reset();
@@ -278,19 +357,26 @@ export default {
       fd.append("age", this.store_model.age);
       fd.append("gender", this.store_model.gender);
       fd.append("profession", this.store_model.profession);
-      fd.append("birth_city", this.store_model.birth_city);
-      fd.append("current_city", this.store_model.current_city);
+      fd.append(
+        "birth_city",
+        this.store_model.birth_city + "/" + this.store_model.birth_state
+      );
+      fd.append(
+        "current_city",
+        this.store_model.current_city + "/" + this.store_model.current_state
+      );
       fd.append(
         "years_on_current_city",
         this.store_model.years_on_current_city
       );
       fd.append(
         "parents_original_city",
-        this.store_model.parents_original_city
+        this.store_model.parents_original_city +
+          "/" +
+          this.store_model.parents_original_state
       );
       fd.append("recaptcha_token", recaptchaToken);
-      // TODO: Get sentence from page
-      fd.append("sentence", "A Amazônia é a reserva ecológica do globo");
+      fd.append("sentence", this.store_sentence);
       fetch(config.api.createRecordUrl, {
         headers: { Accept: "application/json" },
         method: "POST",
@@ -299,7 +385,10 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.$store.dispatch("form/setAudioBlob", null);
-            alert("Áudio publicado com sucesso!");
+            alert(
+              "Áudio publicado com sucesso! Muito obrigado! Caso queira gravar mais, continue à vontade."
+            );
+            this.$store.dispatch("form/fetchSentence", this.birth_state);
           } else {
             alert("Erro ao publicar áudio!");
           }
@@ -318,30 +407,6 @@ export default {
           }
           this.serverError = getErrorMessage(err);
         });
-
-      // this.axios
-      //   .post(config.api.createRecordUrl, {
-      //     form_data: this.store_model,
-      //     audio_blob: this.store_audio_blob,
-      //     recaptchaToken: recaptchaToken,
-      //   })
-      //   .then((response) => {
-      //     this.sucessfulServerResponse = response.data.message;
-      //   })
-      //   .catch((err) => {
-      //     this.serverError = getErrorMessage(err);
-      //     //helper to get a displayable message to the user
-      //     function getErrorMessage(err) {
-      //       let responseBody;
-      //       responseBody = err.response;
-      //       if (!responseBody) {
-      //         responseBody = err;
-      //       } else {
-      //         responseBody = err.response.data || responseBody;
-      //       }
-      //       return responseBody.message || JSON.stringify(responseBody);
-      //     }
-      //   });
     },
     onCaptchaExpired: function () {
       this.$refs.recaptcha.reset();
