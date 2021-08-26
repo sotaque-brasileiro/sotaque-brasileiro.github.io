@@ -8,13 +8,13 @@
     </p>
     <img src="../assets/acc01.png" />
     <p>
-      Você poderá iniciar a gravação clicando no botão. Assim que você iniciar a
-      gravação, ele mudará de cor para vermelho e será escrito "Gravando", como
-      a imagem abaixo:
+      Você poderá iniciar a gravação clicando e segurando o botão. Assim que
+      você iniciar a gravação, ele mudará de cor para vermelho e será escrito
+      "Gravando", como a imagem abaixo:
     </p>
     <img src="../assets/acc02.png" />
     <p>
-      Quando você terminar a gravação, você poderá clicar no botão para parar a
+      Quando você terminar a gravação, basta soltar o botão para parar a
       gravação. Assim que o fizer, ele mudará de cor para verde e será exibido
       um reprodutor de áudio, para que você possa conferir o que foi gravado.
     </p>

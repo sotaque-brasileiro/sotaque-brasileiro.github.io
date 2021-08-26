@@ -388,7 +388,7 @@ export default {
             );
             this.$store.dispatch("form/fetchSentence", this.birth_state);
           } else {
-            alert("Erro ao publicar áudio!");
+            alert("Erro ao publicar áudio, tente novamente por favor.");
           }
         })
         .catch((err) => {

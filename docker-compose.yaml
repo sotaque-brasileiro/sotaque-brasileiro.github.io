@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    restart: unless-stopped
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+  api:
+    restart: unless-stopped
+    build:
+      context: ./backend/brazilian_regional_accent
+    ports:
+      - "8080:80"

@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'brazilian_regional_accent.settings')
+os.environ.setdefault(
+    "DJANGO_SETTINGS_MODULE", "brazilian_regional_accent.settings.prod"
+)
 
 application = get_wsgi_application()

@@ -7,7 +7,7 @@
       </div>
       <div class="row">
         <vue-record-audio
-          :mode="`press`"
+          :mode="`hold`"
           @result="onResult"
           @stream="onStream"
         />
