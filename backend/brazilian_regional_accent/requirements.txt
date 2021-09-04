@@ -1,7 +1,7 @@
 pandas==1.2.4
 numpy==1.20.3
 pytz==2021.1
-requests==2.21.0
+requests==2.26.0
 Django<=3.2.99
 djangorestframework==3.12.4
 minio==7.1.0
