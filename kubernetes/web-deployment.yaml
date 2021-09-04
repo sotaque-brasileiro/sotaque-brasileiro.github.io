@@ -18,4 +18,4 @@ spec:
       containers:
         - imagePullPolicy: Always
           name: sotaque-web
-          image: docker.pkg.github.com/GITHUB_REPO/web:GITHUB_SHA
+          image: gabrielmilan/GITHUB_REPO/web:GITHUB_SHA

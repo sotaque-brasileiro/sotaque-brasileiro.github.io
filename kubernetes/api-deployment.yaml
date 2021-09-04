@@ -18,7 +18,7 @@ spec:
       containers:
         - imagePullPolicy: Always
           name: sotaque-api
-          image: docker.pkg.github.com/GITHUB_REPO/api:GITHUB_SHA
+          image: gabrielmilan/GITHUB_REPO/api:GITHUB_SHA
           env:
             - name: DJANGO_SETTINGS_MODULE
               valueFrom:
