@@ -1,0 +1,16 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sotaque-api-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: api-sotaque.gabriel-milan.com
+      http:
+        paths:
+          - path:
+            backend:
+              serviceName: sotaque-api-service
+              servicePort: 80

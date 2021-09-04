@@ -1,0 +1,87 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sotaque-api-deployment
+  labels:
+    app: sotaque-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sotaque-api
+  template:
+    metadata:
+      labels:
+        app: sotaque-api
+    spec:
+      containers:
+        - imagePullPolicy: Always
+          name: sotaque-api
+          image: docker.pkg.github.com/GITHUB_REPO/api:GITHUB_SHA
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DJANGO_SETTINGS_MODULE
+            - name: RECAPTCHA_SITE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: RECAPTCHA_SITE_KEY
+            - name: RECAPTCHA_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: RECAPTCHA_SECRET_KEY
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: SECRET_KEY
+            - name: MINIO_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: MINIO_ENDPOINT
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: MINIO_ACCESS_KEY
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: MINIO_SECRET_KEY
+            - name: MINIO_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: MINIO_BUCKET_NAME
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_PASSWORD
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_HOST
+            - name: DB_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_PORT

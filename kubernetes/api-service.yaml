@@ -1,0 +1,10 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sotaque-api-service
+spec:
+  selector:
+    app: sotaque-api
+  ports:
+    - port: 80

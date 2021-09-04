@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deploy
+  labels:
+    app: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_NAME
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: envs
+                  key: DB_PASSWORD
+          imagePullPolicy: IfNotPresent
+          name: db
+          image: postgres:13
+          volumeMounts:
+            - name: sotaque-api-pvc
+              mountPath: "/var/lib/postgresql/data"
+              readOnly: false
+              subPath: postgres
+      volumes:
+        - name: sotaque-api-pvc
+          persistentVolumeClaim:
+            claimName: sotaque-api-pvc
