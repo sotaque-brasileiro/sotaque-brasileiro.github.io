@@ -13,6 +13,19 @@
         http://repositorio.unicamp.br/jspui/bitstream/REPOSIP/334048/1/Batista_NathaliaAlvesRocha_M.pdf.
         Acesso em: 4 set. 2021.
       </p>
+      <p>
+        <b>[2]</b>
+        <a
+          href="https://github.com/gabriel-milan/sotaque-brasileiro/releases/tag/latest"
+          >Releases Sotaque Brasileiro</a
+        >
+      </p>
+      <p>
+        <i class="devicon-github-original"></i>
+        <a href="https://github.com/gabriel-milan/sotaque-brasileiro"
+          >gabriel-milan/sotaque-brasileiro</a
+        >
+      </p>
     </div>
   </div>
 </template>
@@ -68,5 +81,13 @@ body {
 }
 p {
   word-break: break-word;
+}
+a {
+  color: lightblue;
+  padding-left: 5px;
+}
+a:hover {
+  color: rgb(21, 165, 212);
+  text-decoration: none;
 }
 </style>
