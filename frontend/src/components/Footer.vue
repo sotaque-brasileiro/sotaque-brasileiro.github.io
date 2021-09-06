@@ -15,8 +15,7 @@
       </p>
       <p>
         <b>[2]</b>
-        <a
-          href="https://github.com/gabriel-milan/sotaque-brasileiro/releases/tag/latest"
+        <a href="https://github.com/gabriel-milan/sotaque-brasileiro/releases"
           >Releases Sotaque Brasileiro</a
         >
       </p>
