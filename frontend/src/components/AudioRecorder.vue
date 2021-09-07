@@ -13,6 +13,9 @@
         />
       </div>
     </div>
+    <div v-if="record_state !== `granted`" class="col-md-12 col-xs-12">
+      <h4>Para gravar sua voz, você precisa permitir o uso de microfone.</h4>
+    </div>
     <div v-if="recording" class="col-md-12 col-xs-12">
       <h4>Gravando...</h4>
     </div>
@@ -46,6 +49,7 @@ export default {
       audioSrc: null,
       audioBlob: null,
       recording: false,
+      recordState: "",
     };
   },
   props: {
@@ -58,6 +62,7 @@ export default {
     ...mapState({
       store_audio_blob: (state) => state.form.audioBlob,
       store_sentence: (state) => state.form.sentence,
+      record_state: (state) => state.form.recordState,
     }),
   },
   watch: {
@@ -71,6 +76,9 @@ export default {
         }
       },
     },
+  },
+  mounted() {
+    this.$store.dispatch("form/fetchRecordState");
   },
 };
 </script>

@@ -11,6 +11,7 @@ const state = () => ({
   parentsCityList: [],
   stateList: [],
   sentence: "",
+  recordState: "",
 });
 
 // getters
@@ -23,6 +24,7 @@ const getters = {
   parentsCityList: state => state.parentsCityList,
   stateList: state => state.stateList,
   sentence: state => state.sentence,
+  recordState: state => state.recordState,
 };
 
 // actions
@@ -130,6 +132,19 @@ const actions = {
     let url = config.api.getSentenceUrl + "?state=" + state
     getSentence(url)
   },
+  fetchRecordState: ({ commit }) => {
+    navigator.permissions
+      .query({ name: "microphone" })
+      .then(function (permissionStatus) {
+        commit('setRecordState', permissionStatus.state);
+        console.log(permissionStatus.state); // granted, denied, prompt
+
+        permissionStatus.onchange = function () {
+          commit('setRecordState', permissionStatus.state);
+          console.log("Permission changed to " + this.state);
+        };
+      });
+  },
 };
 
 // mutations
@@ -158,6 +173,9 @@ const mutations = {
   setSentence: (state, sentence) => {
     state.sentence = sentence;
   },
+  setRecordState: (state, recordState) => {
+    state.recordState = recordState;
+  }
 };
 
 export default {

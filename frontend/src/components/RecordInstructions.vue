@@ -10,8 +10,10 @@
     <p>
       Você poderá iniciar a gravação clicando e segurando o botão. Assim que
       você iniciar a gravação, ele mudará de cor para vermelho e será escrito
-      "Gravando", como a imagem abaixo. Caso o botão não fique vermelho, você
-      deve permitir o acesso à gravação de áudio, que deve estar bloqueado.
+      "Gravando", como a imagem abaixo. Caso o botão não fique vermelho e a
+      mensagem "Para gravar sua voz, você precisa permitir o uso de microfone."
+      esteja aparecendo, você deve permitir o acesso ao microfone, que está
+      bloqueado.
     </p>
     <img src="../assets/acc02.png" class="img-responsive" />
     <p>
