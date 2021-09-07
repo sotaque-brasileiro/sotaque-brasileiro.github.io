@@ -10,7 +10,8 @@
     <p>
       Você poderá iniciar a gravação clicando e segurando o botão. Assim que
       você iniciar a gravação, ele mudará de cor para vermelho e será escrito
-      "Gravando", como a imagem abaixo:
+      "Gravando", como a imagem abaixo. Caso o botão não fique vermelho, você
+      deve permitir o acesso à gravação de áudio, que deve estar bloqueado.
     </p>
     <img src="../assets/acc02.png" class="img-responsive" />
     <p>
