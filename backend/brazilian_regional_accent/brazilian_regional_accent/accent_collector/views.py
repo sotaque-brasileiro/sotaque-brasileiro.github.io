@@ -227,3 +227,145 @@ class NewRecordViewSet(viewsets.ViewSet):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         return views.Response({"status": "ok"})
+
+
+class StatsViewSet(viewsets.ViewSet):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def list(self, request):
+        # Count total records
+        total_records = Record.objects.count()
+        # Query for birth states
+        queryset = (
+            Record.objects.values("speaker__birth_city__state__abbreviation")
+            .annotate(Count("speaker__birth_city__state__abbreviation"))
+            .order_by("-speaker__birth_city__state__abbreviation__count")
+        )
+        birth_states = []
+        for state in queryset:
+            birth_states.append(
+                {
+                    "state": state["speaker__birth_city__state__abbreviation"],
+                    "count": state["speaker__birth_city__state__abbreviation__count"],
+                }
+            )
+        # Query for current states
+        queryset = (
+            Record.objects.values("speaker__current_city__state__abbreviation")
+            .annotate(Count("speaker__current_city__state__abbreviation"))
+            .order_by("-speaker__current_city__state__abbreviation__count")
+        )
+        current_states = []
+        for state in queryset:
+            current_states.append(
+                {
+                    "state": state["speaker__current_city__state__abbreviation"],
+                    "count": state["speaker__current_city__state__abbreviation__count"],
+                }
+            )
+        # Query for parents original states
+        queryset = (
+            Record.objects.values("speaker__parents_original_city__state__abbreviation")
+            .annotate(Count("speaker__parents_original_city__state__abbreviation"))
+            .order_by("-speaker__parents_original_city__state__abbreviation__count")
+        )
+        parents_original_states = []
+        for state in queryset:
+            parents_original_states.append(
+                {
+                    "state": state[
+                        "speaker__parents_original_city__state__abbreviation"
+                    ],
+                    "count": state[
+                        "speaker__parents_original_city__state__abbreviation__count"
+                    ],
+                }
+            )
+        return views.Response(
+            {
+                "total_records": total_records,
+                "birth_states": birth_states,
+                "current_states": current_states,
+                "parents_original_states": parents_original_states,
+            }
+        )
+
+
+class GeoStatsViewSet(viewsets.ViewSet):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def list(self, request):
+        # Count total records
+        total_records = Record.objects.count()
+        # Query for birth lat,lon
+        queryset = (
+            Record.objects.values(
+                "speaker__birth_city__latitude", "speaker__birth_city__longitude"
+            )
+            .annotate(
+                Count("speaker__birth_city__latitude"),
+            )
+            .order_by(
+                "-speaker__birth_city__latitude__count",
+            )
+        )
+        birth_lat_lon = []
+        for state in queryset:
+            birth_lat_lon.append(
+                {
+                    "lat": state["speaker__birth_city__latitude"],
+                    "lon": state["speaker__birth_city__longitude"],
+                    "count": state["speaker__birth_city__latitude__count"],
+                }
+            )
+        # Query for current lat,lon
+        queryset = (
+            Record.objects.values(
+                "speaker__current_city__latitude", "speaker__current_city__longitude"
+            )
+            .annotate(
+                Count("speaker__current_city__latitude"),
+            )
+            .order_by(
+                "-speaker__current_city__latitude__count",
+            )
+        )
+        current_lat_lon = []
+        for state in queryset:
+            current_lat_lon.append(
+                {
+                    "lat": state["speaker__current_city__latitude"],
+                    "lon": state["speaker__current_city__longitude"],
+                    "count": state["speaker__current_city__latitude__count"],
+                }
+            )
+        # Query for parents original lat,lon
+        queryset = (
+            Record.objects.values(
+                "speaker__parents_original_city__latitude",
+                "speaker__parents_original_city__longitude",
+            )
+            .annotate(
+                Count("speaker__parents_original_city__latitude"),
+            )
+            .order_by(
+                "-speaker__parents_original_city__latitude__count",
+            )
+        )
+        parents_original_lat_lon = []
+        for state in queryset:
+            parents_original_lat_lon.append(
+                {
+                    "lat": state["speaker__parents_original_city__latitude"],
+                    "lon": state["speaker__parents_original_city__longitude"],
+                    "count": state["speaker__parents_original_city__latitude__count"],
+                }
+            )
+        return views.Response(
+            {
+                "total_records": total_records,
+                "birth_location": birth_lat_lon,
+                "current_location": current_lat_lon,
+                "parents_original_location": parents_original_lat_lon,
+            }
+        )

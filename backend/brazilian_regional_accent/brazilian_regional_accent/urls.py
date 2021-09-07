@@ -26,6 +26,8 @@ router.register(r"sentences", views.SentenceViewSet, basename="sentence")
 router.register(r"speakers", views.SpeakerViewSet)
 router.register(r"records", views.RecordViewSet)
 router.register(r"create_record", views.NewRecordViewSet, basename="create_record")
+router.register(r"stats", views.StatsViewSet, basename="stats")
+router.register(r"geo_stats", views.GeoStatsViewSet, basename="geo_stats")
 
 
 urlpatterns = [
