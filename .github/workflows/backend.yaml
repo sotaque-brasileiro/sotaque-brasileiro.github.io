@@ -45,6 +45,10 @@ jobs:
             --tag "gcr.io/$PROJECT_ID/sotaque-brasileiro-api:${{ github.sha }}" \
             .
 
+      - name: Publish Docker image
+        run: |-
+          docker push "gcr.io/$PROJECT_ID/sotaque-brasileiro-api:${{ github.sha }}"
+
       - name: Set up Kustomize
         run: |-
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
