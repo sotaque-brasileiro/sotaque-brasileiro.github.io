@@ -7,7 +7,6 @@ from django.conf import settings
 from django.http import HttpResponse
 from google.oauth2 import service_account
 from google.cloud import storage
-from google.cloud.storage.blob import Blob
 
 
 def validate_recaptcha_token(token):

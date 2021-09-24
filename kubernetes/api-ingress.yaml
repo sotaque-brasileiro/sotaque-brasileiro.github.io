@@ -11,9 +11,20 @@ metadata:
 spec:
   tls:
     - hosts:
+        - api-sotaque.gabriel-milan.com
         - api-sotaque-v2.gabriel-milan.com
       secretName: api-sotaque-tls
   rules:
+    - host: api-sotaque.gabriel-milan.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sotaque-api-service
+                port:
+                  number: 80
     - host: api-sotaque-v2.gabriel-milan.com
       http:
         paths:
