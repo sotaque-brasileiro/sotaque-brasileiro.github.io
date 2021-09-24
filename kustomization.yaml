@@ -6,6 +6,3 @@ resources:
   - kubernetes/api-service.yaml
   - kubernetes/db-deployment.yaml
   - kubernetes/db-service.yaml
-  - kubernetes/web-deployment.yaml
-  - kubernetes/web-ingress.yaml
-  - kubernetes/web-service.yaml
