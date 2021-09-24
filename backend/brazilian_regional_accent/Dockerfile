@@ -12,6 +12,12 @@ WORKDIR /app
 COPY requirements.txt .
 RUN /env/bin/pip install --no-cache-dir -r requirements.txt
 
+# Install nginx and copy configuration
+RUN apt-get update && apt-get install -y --no-install-recommends nginx \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+COPY nginx.conf /etc/nginx/sites-available/default
+
 # Copy app, generate static and set permissions
 COPY . .
 RUN /env/bin/python manage.py collectstatic --no-input --settings=brazilian_regional_accent.settings.dev && \
