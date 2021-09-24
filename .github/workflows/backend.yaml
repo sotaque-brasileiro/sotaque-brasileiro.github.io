@@ -5,8 +5,14 @@ on:
     branches:
       - master
     paths:
+      - ".github/workflows/backend.yaml"
       - "backend/**/*"
       - "kubernetes/**/*"
+
+env:
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER_NAME }}
+  GKE_ZONE: us-central1-c
 
 jobs:
   build:
@@ -15,19 +21,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Log in to Github Docker Registry
-        uses: docker/login-action@v1
+      - name: Setup Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v0.2.1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          service_account_key: ${{ secrets.GKE_SA_KEY }}
+          project_id: ${{ secrets.GKE_PROJECT }}
 
-      - name: Build and publish API image
-        uses: docker/build-push-action@v2
+      - name: Configure Docker with gcloud
+        run: |-
+          gcloud --quiet auth configure-docker
+
+      - name: Get GKE credentials
+        uses: google-github-actions/get-gke-credentials@v0.2.1
         with:
-          context: ./backend/brazilian_regional_accent/
-          push: true
-          tags: |
-            gabrielmilan/sotaque-brasileiro-api:${{ github.sha }}
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
+          credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: Build Docker image
+        run: |-
+          cd ./backend/brazilian_regional_accent/
+          docker build \
+            --tag "gcr.io/$PROJECT_ID/sotaque-brasileiro-api:${{ github.sha }}" \
+            .
 
       - name: Set up Kustomize
         run: |-
@@ -42,5 +58,5 @@ jobs:
 
       - name: Deploy
         run: |-
-          ./kustomize edit set image gabrielmilan/GITHUB_REPO/api:GITHUB_SHA=gabrielmilan/sotaque-brasileiro-api:${{ github.sha }}
+          ./kustomize edit set image gabrielmilan/GITHUB_REPO/api:GITHUB_SHA=gcr.io/$PROJECT_ID/sotaque-brasileiro-api:${{ github.sha }}
           ./kustomize build . | kubectl apply --insecure-skip-tls-verify -n sotaque -f -
