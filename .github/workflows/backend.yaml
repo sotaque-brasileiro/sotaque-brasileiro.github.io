@@ -1,9 +1,12 @@
-name: Build, publish and deploy
+name: Build and deploy back-end
 
 on:
   push:
     branches:
-      - "master"
+      - master
+    paths:
+      - "backend/**/*"
+      - "kubernetes/**/*"
 
 jobs:
   build:
@@ -26,14 +29,6 @@ jobs:
           tags: |
             gabrielmilan/sotaque-brasileiro-api:${{ github.sha }}
 
-      - name: Build and publish WebApp image
-        uses: docker/build-push-action@v2
-        with:
-          context: ./frontend/
-          push: true
-          tags: |
-            gabrielmilan/sotaque-brasileiro-web:${{ github.sha }}
-
       - name: Set up Kustomize
         run: |-
           curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
@@ -48,5 +43,4 @@ jobs:
       - name: Deploy
         run: |-
           ./kustomize edit set image gabrielmilan/GITHUB_REPO/api:GITHUB_SHA=gabrielmilan/sotaque-brasileiro-api:${{ github.sha }}
-          ./kustomize edit set image gabrielmilan/GITHUB_REPO/web:GITHUB_SHA=gabrielmilan/sotaque-brasileiro-web:${{ github.sha }}
           ./kustomize build . | kubectl apply --insecure-skip-tls-verify -n sotaque -f -
