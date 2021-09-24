@@ -15,14 +15,14 @@
       </p>
       <p>
         <b>[2]</b>
-        <a href="https://github.com/gabriel-milan/sotaque-brasileiro/releases"
+        <a href="https://github.com/sotaque-brasileiro/sotaque-brasileiro/releases"
           >Releases Sotaque Brasileiro</a
         >
       </p>
       <p>
         <i class="devicon-github-original"></i>
-        <a href="https://github.com/gabriel-milan/sotaque-brasileiro"
-          >gabriel-milan/sotaque-brasileiro</a
+        <a href="https://github.com/sotaque-brasileiro/sotaque-brasileiro"
+          >sotaque-brasileiro/sotaque-brasileiro</a
         >
       </p>
     </div>
