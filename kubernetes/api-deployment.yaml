@@ -40,26 +40,16 @@ spec:
                 secretKeyRef:
                   name: envs
                   key: SECRET_KEY
-            - name: MINIO_ENDPOINT
+            - name: GCS_BUCKET_NAME
               valueFrom:
                 secretKeyRef:
                   name: envs
-                  key: MINIO_ENDPOINT
-            - name: MINIO_ACCESS_KEY
+                  key: GCS_BUCKET_NAME
+            - name: GOOGLE_CLOUD_CREDENTIALS
               valueFrom:
                 secretKeyRef:
                   name: envs
-                  key: MINIO_ACCESS_KEY
-            - name: MINIO_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: envs
-                  key: MINIO_SECRET_KEY
-            - name: MINIO_BUCKET_NAME
-              valueFrom:
-                secretKeyRef:
-                  name: envs
-                  key: MINIO_BUCKET_NAME
+                  key: GOOGLE_CLOUD_CREDENTIALS
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:

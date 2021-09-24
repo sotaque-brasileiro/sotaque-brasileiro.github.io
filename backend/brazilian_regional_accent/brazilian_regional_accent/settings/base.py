@@ -33,12 +33,9 @@ SECRET_KEY = ""
 
 TZINFO = "America/Sao_Paulo"
 
-# MinIO
-
-MINIO_ENDPOINT = ""
-MINIO_ACCESS_KEY = ""
-MINIO_SECRET_KEY = ""
-MINIO_BUCKET_NAME = ""
+# Google Cloud
+GCS_BUCKET_NAME = ""
+GOOGLE_CLOUD_CREDENTIALS = ""
 
 # Application definition
 

@@ -1,9 +1,9 @@
 export default Object.freeze({
     api: {
-        createRecordUrl: 'https://sotaque-brasileiro-api-sw4vzi3ffa-uc.a.run.app/create_record/',
-        getGendersUrl: 'https://sotaque-brasileiro-api-sw4vzi3ffa-uc.a.run.app/genders/',
-        getCitiesUrl: 'https://sotaque-brasileiro-api-sw4vzi3ffa-uc.a.run.app/cities/',
-        getStatesUrl: 'https://sotaque-brasileiro-api-sw4vzi3ffa-uc.a.run.app/states/',
-        getSentenceUrl: 'https://sotaque-brasileiro-api-sw4vzi3ffa-uc.a.run.app/sentences/',
+        createRecordUrl: 'https://api-sotaque-v2.gabriel-milan.com/create_record/',
+        getGendersUrl: 'https://api-sotaque-v2.gabriel-milan.com/genders/',
+        getCitiesUrl: 'https://api-sotaque-v2.gabriel-milan.com/cities/',
+        getStatesUrl: 'https://api-sotaque-v2.gabriel-milan.com/states/',
+        getSentenceUrl: 'https://api-sotaque-v2.gabriel-milan.com/sentences/',
     },
 })

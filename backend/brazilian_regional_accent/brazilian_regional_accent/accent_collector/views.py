@@ -4,13 +4,12 @@ import datetime
 from django.db.models import Count
 
 import pytz
-from minio import Minio
 from django.conf import settings
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework import views, viewsets
 from rest_framework import permissions
-from django.core.files.uploadedfile import InMemoryUploadedFile
 
 from .models import (
     State,
@@ -28,7 +27,7 @@ from .serializers import (
     SpeakerSerializer,
     RecordSerializer,
 )
-from .utils import validate_recaptcha_token
+from .utils import validate_recaptcha_token, upload_audio_to_gcs
 
 
 class StateViewSet(viewsets.ModelViewSet):
@@ -130,7 +129,8 @@ class NewRecordViewSet(viewsets.ViewSet):
                     {"error": f"Estado desconhecido: {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
-            birth_city = City.objects.filter(name=city, state=birth_state).first()
+            birth_city = City.objects.filter(
+                name=city, state=birth_state).first()
             if birth_city is None:
                 return Response(
                     {"error": f"Cidade {city} desconhecida no estado {state}"},
@@ -144,7 +144,8 @@ class NewRecordViewSet(viewsets.ViewSet):
                     {"error": f"Estado desconhecido: {state}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
-            current_city = City.objects.filter(name=city, state=current_state).first()
+            current_city = City.objects.filter(
+                name=city, state=current_state).first()
             if current_city is None:
                 return Response(
                     {"error": f"Cidade {city} desconhecida no estado {state}"},
@@ -152,7 +153,8 @@ class NewRecordViewSet(viewsets.ViewSet):
                 )
             # Validate parents_original_city
             city, state = request.data["parents_original_city"].split("/")
-            parents_original_state = State.objects.filter(abbreviation=state).first()
+            parents_original_state = State.objects.filter(
+                abbreviation=state).first()
             if parents_original_state is None:
                 return Response(
                     {"error": f"Estado desconhecido: {state}"},
@@ -168,7 +170,8 @@ class NewRecordViewSet(viewsets.ViewSet):
                 )
             # Validate years_on_current_city
             try:
-                years_on_current_city = int(request.data["years_on_current_city"])
+                years_on_current_city = int(
+                    request.data["years_on_current_city"])
             except:
                 return Response(
                     {
@@ -187,29 +190,24 @@ class NewRecordViewSet(viewsets.ViewSet):
                 parents_original_city=parents_original_city,
             )
             # Validate sentence
-            sentence = Sentence.objects.filter(text=request.data["sentence"]).first()
+            sentence = Sentence.objects.filter(
+                text=request.data["sentence"]).first()
             if sentence is None:
                 return Response(
                     {"error": f"Frase desconhecida: {request.data['sentence']}"},
                     status=status.HTTP_400_BAD_REQUEST,
                 )
-            # Upload audio to MinIO
-            minio_client = Minio(
-                settings.MINIO_ENDPOINT,
-                access_key=settings.MINIO_ACCESS_KEY,
-                secret_key=settings.MINIO_SECRET_KEY,
-            )
+            # Upload audio to GCS
             audio_id = str(uuid.uuid4())
             tmp_filename = f"/tmp/{audio_id}.wav"
             audio_blob: InMemoryUploadedFile = request.data["audio_blob"]
             with open(tmp_filename, "wb") as f:
                 f.write(audio_blob.read())
-            minio_client.fput_object(
-                settings.MINIO_BUCKET_NAME,
+            upload_audio_to_gcs(
+                settings.GCS_BUCKET_NAME,
                 f"accent/{audio_id}.wav",
                 tmp_filename,
-                content_type="audio/wav",
-            )
+                content_type="audio/wav")
             # Delete temporary file
             os.remove(tmp_filename)
             # Build Record
@@ -265,7 +263,8 @@ class StatsViewSet(viewsets.ViewSet):
             )
         # Query for parents original states
         queryset = (
-            Record.objects.values("speaker__parents_original_city__state__abbreviation")
+            Record.objects.values(
+                "speaker__parents_original_city__state__abbreviation")
             .annotate(Count("speaker__parents_original_city__state__abbreviation"))
             .order_by("-speaker__parents_original_city__state__abbreviation__count")
         )

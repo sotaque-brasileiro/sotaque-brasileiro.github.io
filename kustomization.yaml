@@ -6,3 +6,4 @@ resources:
   - kubernetes/api-service.yaml
   - kubernetes/db-deployment.yaml
   - kubernetes/db-service.yaml
+  - kubernetes/db-pvc.yaml

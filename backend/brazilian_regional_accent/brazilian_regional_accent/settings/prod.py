@@ -9,14 +9,13 @@ RECAPTCHA_SITE_KEY = getenv("RECAPTCHA_SITE_KEY")
 RECAPTCHA_SECRET_KEY = getenv("RECAPTCHA_SECRET_KEY")
 SECRET_KEY = getenv("SECRET_KEY")
 
-# MinIO
-MINIO_ENDPOINT = getenv("MINIO_ENDPOINT")
-MINIO_ACCESS_KEY = getenv("MINIO_ACCESS_KEY")
-MINIO_SECRET_KEY = getenv("MINIO_SECRET_KEY")
-MINIO_BUCKET_NAME = getenv("MINIO_BUCKET_NAME")
+# Google Cloud credentials
+GCS_BUCKET_NAME = getenv("GCS_BUCKET_NAME")
+GOOGLE_CLOUD_CREDENTIALS = getenv("GOOGLE_CLOUD_CREDENTIALS")
 
 CORS_ALLOWED_ORIGINS = [
     "https://sotaque.gabriel-milan.com",
+    "https://sotaque-brasileiro.github.io",
 ]
 
 # Database
