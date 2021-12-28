@@ -61,17 +61,23 @@ class SentenceViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = Sentence.objects.all()
         state = self.request.query_params.get("state", None)
+
+        def return_default(queryset):
+            return queryset.order_by("text")
+
         if state is not None:
-            # Get sentence with the lowest number of records
-            sentence = (
-                queryset.annotate(num_records=Count("record"))
-                .order_by("num_records")
-                .first()
+            # Get all records for this state
+            records = Record.objects.filter(
+                speaker__birth_city__state__abbreviation=state
             )
+            if records.count() == 0:
+                return return_default(queryset)
+            # Get sentence with the lowest number of records
+            sentence = records.annotate(
+                num_records=Count("id")
+            ).order_by("num_records").first()
             queryset = queryset.filter(id=sentence.id)
-        else:
-            queryset = queryset.order_by("text")
-        return queryset
+        return return_default(queryset)
 
 
 class SpeakerViewSet(viewsets.ModelViewSet):
