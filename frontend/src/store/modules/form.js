@@ -32,104 +32,25 @@ const actions = {
     setModel: ({ commit }, model) => commit('setModel', model),
     setAudioBlob: ({ commit }, audioBlob) => commit('setAudioBlob', audioBlob),
     fetchGenderList: ({ commit }) => {
-        function getGenders(url) {
-            axios
-                .get(url)
-                .then(({ data }) => {
-                    data.results.forEach((item) => {
-                        genders.push(item.radio_text)
-                    })
-                    if (data.next) {
-                        getGenders(data.next)
-                    } else {
-                        commit('setGenderList', genders)
-                    }
-                })
-        }
-        let genders = []
-        let url = config.api.getGendersUrl
-        getGenders(url)
-
+        let genders = config.genders;
+        commit('setGenderList', genders);
     },
     fetchBirthCityList: ({ commit }, state) => {
-        function getCities(url) {
-            axios
-                .get(url)
-                .then(({ data }) => {
-                    data.results.forEach((item) => {
-                        cities.push(item.name)
-                    })
-                    if (data.next) {
-                        getCities(data.next)
-                    } else {
-                        commit('setBirthCityList', cities)
-                    }
-                })
-        }
-        let cities = []
-        let url = config.api.getCitiesUrl + "?state=" + state
-        getCities(url)
-
+        let cities = config.cities[state];
+        commit('setBirthCityList', cities);
     },
     fetchCurrentCityList: ({ commit }, state) => {
-        function getCities(url) {
-            axios
-                .get(url)
-                .then(({ data }) => {
-                    data.results.forEach((item) => {
-                        cities.push(item.name)
-                    })
-                    if (data.next) {
-                        getCities(data.next)
-                    } else {
-                        commit('setCurrentCityList', cities)
-                    }
-                })
-        }
-        let cities = []
-        let url = config.api.getCitiesUrl + "?state=" + state
-        getCities(url)
-
+        let cities = config.cities[state];
+        commit('setCurrentCityList', cities);
     },
     fetchParentsCityList: ({ commit }, state) => {
-        function getCities(url) {
-            axios
-                .get(url)
-                .then(({ data }) => {
-                    data.results.forEach((item) => {
-                        cities.push(item.name)
-                    })
-                    if (data.next) {
-                        getCities(data.next)
-                    } else {
-                        commit('setParentsCityList', cities)
-                    }
-                })
-        }
-        let cities = []
-        let url = config.api.getCitiesUrl + "?state=" + state
-        getCities(url)
-
+        let cities = config.cities[state];
+        commit('setParentsCityList', cities);
     },
     fetchStateList: ({ commit }) => {
-        function getStates(url) {
-            axios
-                .get(url)
-                .then(({ data }) => {
-                    data.results.forEach((item) => {
-                        states.push(item.abbreviation)
-                    })
-                    if (data.next) {
-                        getStates(data.next)
-                    } else {
-                        commit('setStateList', states)
-                    }
-                })
-        }
-        let states = []
-        let url = config.api.getStatesUrl
-        getStates(url)
-
+        let states = Object.keys(config.cities);
+        states.sort();
+        commit('setStateList', states);
     },
     fetchSentence: ({ commit }, state) => {
         function getSentence(url) {
@@ -148,7 +69,6 @@ const actions = {
             .then(function(permissionStatus) {
                 commit('setRecordState', permissionStatus.state);
                 console.log(permissionStatus.state); // granted, denied, prompt
-
                 permissionStatus.onchange = function() {
                     commit('setRecordState', permissionStatus.state);
                     console.log("Permission changed to " + this.state);
